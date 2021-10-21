@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>カレンダー</title>
+    <link rel="stylesheet" href="css/Calendar.css">
+    <script src="JavaSclipt/Calendar.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- xxxx年xx月を表示 -->
+        <h1 id="header"></h1>
+
+        <!-- ボタンクリックで月移動 -->
+        <div id="next-prev-button">
+            <!--　前の月を表示　-->
+            <button id="prev" onclick="prev()">‹</button>
+            <!--　次の月を表示　-->
+            <button id="next" onclick="next()">›</button>
+        </div>
+
+        <!-- カレンダー -->
+        <div id="calendar"></div>
+
+        <!--　予定の追加（本番はもとから追加してあるからいらない。）　-->
+        予定がある日<br>
+        2021年 9月 9日<br>
+        2021年 9月 28日<br>
+        2021年 10月 1日<br>
+        2021年 10月 10日<br>
+        2021年 10月 21日<br>
+        2021年 10月 26日<br>
+        2021年 10月 31日<br>
+        2021年 11月 1日<br>
+        2021年 11月 11日<br>
+        <input type="button" value="予定を追加" onclick="AddShedule()">
+        太字が予約
+    </div>
+</body>
+</html>
