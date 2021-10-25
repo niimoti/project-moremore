@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>企業名</th>
+        <th>業種</th>
+        <th>日程</th>
+        <th>内容</th>
+        <th>場所</th>
+        <th>予約締切日時</th>
+        <th>企業HPのURL</th>
+        <th>説明会説明</th>
+        <th>説明会PDF</th>
+    </tr>
+    <tr th:each="ANA : ${ketsu}">
+        <td>[[${ANA.kName}]]</td>
+        <td>[[${ANA.industry}]]</td>
+        <td>[[${ANA.day}]]</td>
+        <td>[[${ANA.contents}]]</td>
+        <td>[[${ANA.place}]]</td>
+        <td>[[${ANA.deadline}]]</td>
+        <td>[[${ANA.URL}]]</td>
+        <td>[[${ANA.explanation}]]</td>
+        <td>
+            <form action="ISprint" method="post">
+                <button name="isId" th:value="${ANA.id}">表示</button>
+            </form>
+        </td>
+        <td>
+            <form action="ISChange" method="post">
+                <button name="isId" th:value="${ANA.id}">変更</button>
+            </form>
+        </td>
+        <td>
+            <form action="ISDelete" method="post">
+                <button name="isId" th:value="${ANA.id}">削除</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

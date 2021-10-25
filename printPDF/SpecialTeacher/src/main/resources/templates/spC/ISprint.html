@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${filePath}"></title>
+    <style>
+        iframe[src$=".pdf"]{
+            width:100%;
+            height:80vh;
+        }
+    </style>
+</head>
+<body>
+
+<iframe th:src="@{${filePath2} + '.pdf'}" width="100%" height="120%"></iframe>
+
+</body>
+</html>

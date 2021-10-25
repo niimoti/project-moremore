@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>説明会管理:変更</h1>
+
+<form method="post" enctype="multipart/form-data" th:action="@{/ISChangeOkey}" th:each="print : ${changeData}">
+
+    <p>日程<label><input type="text" name="day" th:value="${print.getDay()}"></label>
+    <p>場所<label><input type="text" name="place" th:value="${print.getPlace()}"></label>
+    <p>予約締切日時<label><input type="text" name="deadline" th:value="${print.getDeadline()}"></label>
+
+    <br>
+    <button>送信</button>
+
+
+</form>
+
+</body>
+</html>
