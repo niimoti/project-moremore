@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>カレンダー</title>
+    <link rel="stylesheet" href="css/CaleData.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>const cname = [],cdata = [],rcom = [],rstu = []</script>
+    <script th:each="explanation : ${explanation}" th:inline="javascript">
+        cname.push([[${explanation.companysname}]]);
+        cdata.push([[${explanation.reservedate}]]);
+    </script>
+    <script th:each="reserve : ${reserve}" th:inline="javascript">
+        rcom.push([[${reserve.companyname}]])
+        rstu.push([[${reserve.username}]])
+    </script>
+    <script src="JavaScript/CaleData.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <select id="stuname">
+        <option value="com">全企業説明会の日程</option>
+        <option th:each="users : ${users}" th:value="${users.username}" th:if="${users.student}">
+            [[${users.name}]]さんの予約日程
+        </option>
+    </select>
+    <input type="button" value="カレンダー変更" onclick="CalenderChange()">
+    <!-- xxxx年xx月を表示 -->
+    <h1 id="header"></h1>
+    <!-- ボタンクリックで月移動 -->
+    <div id="next-prev-button">
+        <!--　前の月を表示　-->
+        <button id="prev" onclick="prev()">‹</button>
+        <!--　次の月を表示　-->
+        <button id="next" onclick="next()">›</button>
+    </div>
+    <!-- カレンダー -->
+    <div id="calendar"></div>
+</div>
+<div class="Calendar">
+    <table>
+        <tr>
+            <td>
+                <div id="reservecontents"></div>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
